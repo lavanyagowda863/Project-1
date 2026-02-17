@@ -50,25 +50,45 @@ Groovy
 Jenkinsfile
 
 pipeline {
+
     agent any
+    
     stages {
+    
         stage('Checkout') {
+        
             steps {
+            
                 git 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
+                
             }
+            
         }
+        
         stage('Build Docker Image') {
+        
             steps {
+            
                 sh 'docker build -t devops-simple-app .'
+                
             }
+            
         }
+        
         stage('Run Container') {
+        
             steps {
+            
                 sh 'docker run --rm devops-simple-app'
+                
             }
+            
         }
+        
     }
+    
 }
+
 
 
 
@@ -102,10 +122,14 @@ docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins
 
 Note:
 Before you can run this Jenkins job, you must push your app.py, Dockerfile, and Jenkinsfile to GitHub.
+
 If your terminal still hangs/blinks when you try git push:
+
 1.Kill the process: Press Ctrl + C.
+
 2.Try the Credential Helper: Run git config --global credential.helper manager.
-3.Push manually: Try pushing via the GitHub Desktop app or the VS Code Git extension. They often handle the "hanging" login screen better than the command line.
+
+3.Push manually: Try pushing via the GitHub Desktop app or the VS Code Git extension. 
 
 
 ==============================End=========================================
