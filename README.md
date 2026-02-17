@@ -1,14 +1,14 @@
 # Project-1
 Using Git, Github, Jenkins and Docker in Local
 
-==========================================Starts=====================================================
+===========================Starts======================================
 The Workflow
 1.Developer: Pushes code to GitHub.
 2.Jenkins: Detects the push, pulls the code, and runs a "Jenkinsfile" (the pipeline).
 3.Docker: Jenkins commands Docker to build an image and run it as a container.
 
 
-===================================================Steps=============================================
+===========================Steps=======================================
 Step 1: The Code (Simple Python App)
 
 Create a folder called "my-devops-app" and add a file named "app.py"
@@ -85,4 +85,4 @@ If your terminal still hangs/blinks when you try git push:
 3.Push manually: Try pushing via the GitHub Desktop app or the VS Code Git extension. They often handle the "hanging" login screen better than the command line.
 
 
-==============================================End=====================================================
+==============================End=========================================
