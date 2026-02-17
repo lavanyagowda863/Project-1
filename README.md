@@ -2,6 +2,7 @@
 Using Git, Github, Jenkins and Docker in Local
 
 ===========================Starts======================================
+
 The Workflow
 1.Developer: Pushes code to GitHub.
 2.Jenkins: Detects the push, pulls the code, and runs a "Jenkinsfile" (the pipeline).
@@ -9,6 +10,7 @@ The Workflow
 
 
 ===========================Steps=======================================
+
 Step 1: The Code (Simple Python App)
 
 Create a folder called "my-devops-app" and add a file named "app.py"
@@ -64,14 +66,15 @@ Step 4: Connecting the Tools
 
 1. Run Jenkins with Docker
 Since you are doing this locally, the easiest way to run Jenkins is actually inside Docker itself. Run this in your terminal:
+
 docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 
-2. Configure Jenkins
+3. Configure Jenkins
 •Go to localhost:8080 in your browser.
 •Unlock Jenkins using the password found in the logs.
 •Install Plugins: Go to Manage Jenkins > Plugins and install the "Docker" and "Pipeline" plugins.
 
-3. Create the Job
+4. Create the Job
 •Click New Item > Pipeline.
 •Under Pipeline, select "Pipeline script from SCM."
 •Select Git and paste your GitHub URL.
