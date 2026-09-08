@@ -1,4 +1,4 @@
-print ("Hello DevOps class! \nThis app is running inside a Docker Container.")
+print ("Hello DevOps class! \nThis app is running inside a Docker Container")
 
 
 #import datetime
