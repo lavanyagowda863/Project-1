@@ -10,6 +10,21 @@ pipeline {
             }
         }
 
+        stage('Check Project') {
+            steps {
+                sh '''
+                    echo "Current directory:"
+                    pwd
+
+                    echo "Files:"
+                    ls -la
+
+                    echo "Checking pom.xml:"
+                    ls -l pom.xml
+                '''
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'mvn clean package'
@@ -19,7 +34,17 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                    sh '''
+                        mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+                    '''
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
